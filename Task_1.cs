@@ -49,70 +49,56 @@ class Program
             // то в первый элемент массива кладём первую цифру числа
                 pairs[0] = int.Parse(numStr.Substring(0, 1));
             }
+            // иначе 
             else
-            {// иначе 
-            
+            {
+                
+                // инициируем переменную 
                 int pairIndex = 0;
+                // если длина нечетная
                 if (len % 2 == 1)  
+                
                     {
                     pairIndex = i / 2 + 1 ;
-                        
                     } 
                 else  
                     {
                     pairIndex = i / 2 ;
-                        
                     }
+                // сдвиг текущего значения в паре на разряд
                 pairs[pairIndex] *= 10;
+                // прибавляем следующую цифру
                 pairs[pairIndex] += (numStr[i] - '0');
             }
+            // итого на этом этапе имеем все пары чисел, которые составляют первоначальное число 
 
         }
-
+        
+        //
         string result = "";
-
         int remainder = 0;
-
         for (int i = 0; i < groups; i++)
-
-        {
-
+        {   
+            // Добавляем следующую пару к остатку
             int current = remainder * 100 + pairs[i];
-
             int x = 0;
-
             for (int j = 1; j <= 9; j++)
-
-            {
-
+            {   // Подбираем такую цифру j, при которой
                 int trial = (int.Parse(result + j.ToString()) * j);
-
+                // — это наибольшее число, не превышающее current.
                 if (trial <= current)
-
-                {
-
-                    x = j;
-
+                { x = j;
                 }
-
                 else
-
                 {
-
                     break;
-
                 }
-
             }
-
+            // Сохраняем x как наибольшее подходящее j.
             result += x.ToString();
-
             remainder = current - (int.Parse(result) * x);
-
         }
-
         return result;
-
     }
 
 }
