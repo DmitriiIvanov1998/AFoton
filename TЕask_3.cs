@@ -54,7 +54,7 @@ class Program
 
         int result = MinKnightMoves(startX, startY, endX, endY);
 
-        Console.WriteLine($"Минимальное количество ходов коня из точки A ({startX}, {startY}) в точку B ({endX}, {endY}): {result}");
+        Console.WriteLine($"Из A ({startX},{startY}) в B ({endX},{endY}) надо {result}");
 
     }
 
