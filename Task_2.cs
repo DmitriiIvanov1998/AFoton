@@ -80,7 +80,7 @@ class Program
 
                 found = true;
 
-                Console.WriteLine($"Число {k} найдено в таблице на позиции ({row + 1}, {col + 1}).");
+                Console.WriteLine($"Число {k} на ({row + 1}, {col + 1}).");
 
                 break;
 
